@@ -2,12 +2,15 @@ using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class MouvementRobot : MonoBehaviour
 {
     [SerializeField] private float vitesse = 5f;
 
+
     private Rigidbody2D corps;
     private Vector2 direction;
+    private Animator animator;
 
     private void Awake()
     {
@@ -25,7 +28,9 @@ public class MouvementRobot : MonoBehaviour
     private void FixedUpdate()
     {
         // TODO : déplacer le robot en tenant compte du temps physique.
+        animator = GetComponent<Animator>();
         corps.MovePosition(corps.position + direction * vitesse * Time.fixedDeltaTime);
+        animator.SetBool("EnMouvement", direction.sqrMagnitude > 0.01f);
     }
 
     /*
