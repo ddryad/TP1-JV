@@ -1,0 +1,3 @@
+Pourquoi utilise-t-on des valeurs de suivi différentes pour les trois couches de parallaxe?
+
+Afin qu'elles se déplacent a des vitesses différentes, car plus c'est loin, moins on remarque la vitesse. Cela accentue le réalisme et donne une impression de 3d
